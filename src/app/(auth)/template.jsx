@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 
 
 export default function Layout({ children }) {
   const pathname = usePathname();
+  const [input , setInput] = useState('')
   const navLink = [
     { name: "Register", href: "/register" },
     { name: "Login", href: "/login" },
@@ -19,6 +21,7 @@ export default function Layout({ children }) {
         <div className="w-full text-center">
           Header - for auth layout
         </div>
+        <input className="border-2" type="text" value={input} onChange={(e)=>{setInput(e.target.value)}} />
         <div className="w-full text-center">
           {
             navLink.map((item, key) =>{
