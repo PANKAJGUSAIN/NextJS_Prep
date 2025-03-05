@@ -5,9 +5,9 @@ export default function NotificationsSlot(){
         <>
             <div className="font-bold text-2xl text-center h-[80%] border-2 border-purple-900">
                 
-                <p>Notifications Slot</p>
+                <p>Archived Notifications Slot</p>
                 <br/>
-                <Link href="/complexDashboard/archived">ARCHIVED</Link>
+                <Link href="/complexDashboard">Default</Link>
 
                 
             </div>
