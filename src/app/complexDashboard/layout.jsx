@@ -1,7 +1,10 @@
 
 export default function ComplexDashboardLayout(props) {
     console.log(props)
-    return (
+
+    const isLoggedIn = false ;
+
+    return isLoggedIn ? (
         <div className="h-full w-full ">
             <div>{props.children}</div>
             <div className="flex h-full w-full ">
@@ -14,5 +17,7 @@ export default function ComplexDashboardLayout(props) {
                 </div>
             </div>
         </div>
+    ) : (
+        props.login
     )
 }
