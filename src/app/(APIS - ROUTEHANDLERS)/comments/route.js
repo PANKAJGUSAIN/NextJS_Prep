@@ -1,8 +1,11 @@
-import { headers } from "next/headers";
-import { comments } from "./data"
+import { comments} from "./data"
 
-export async function GET() {
-    return Response.json(comments)
+export async function GET(request) {
+    console.log(request.nextUrl.searchParams)
+    const searchParams = request.nextUrl.searchParams
+    const query = searchParams.get("query");
+    const filtercomment = query ?  comments.filter(comment => comment.text.includes(query) ) : comments
+    return Response.json(filtercomment)
 }
 
 export async function POST(request) {
