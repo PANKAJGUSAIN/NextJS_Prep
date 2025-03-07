@@ -1,6 +1,16 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
+
+    const response = NextResponse.next(); //to fetch the response object that we will return it to the next function
+    const themePrefrence = request.cookies.get("theme");
+
+    console.log("herere");
+
+    if(!themePrefrence){
+        response.cookies.set("theme" , "Dark");
+    }
+
     const { pathname } = request.nextUrl;
 
     if (pathname.startsWith('/profile')) {
@@ -14,9 +24,9 @@ export function middleware(request) {
     }
 
     // Default middleware logic
-    return NextResponse.next();
+    return response;
 }
 
 export const config = {
-    matcher: ['/profile', '/dashboard'],
+    matcher: ['/profile', '/dashboard' , '/'],
 };
