@@ -1,3 +1,4 @@
+import ImageSlider from "@/components/ImageSlide";
 import { serverSideFunction } from "@/utils/serverutils";
 
 export default function ServerRoute(){
@@ -5,6 +6,7 @@ export default function ServerRoute(){
     return (
         <>
             <h1>Server Route-{result}</h1>
+            <ImageSlider/>
             
         </>
     )
