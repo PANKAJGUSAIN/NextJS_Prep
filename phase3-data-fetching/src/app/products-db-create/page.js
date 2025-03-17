@@ -1,5 +1,6 @@
 import { addProduct } from "@/prisma-db";
 import { redirect } from "next/navigation";
+import SubmitButton from "./button";
 
 export default function addProductsPage(){
 
@@ -30,8 +31,9 @@ export default function addProductsPage(){
                     <label htmlFor="description" className="mb-2 font-semibold">Description:</label>
                     <textarea id="description" name="description" required className="p-2 border rounded"></textarea>
                 </div>
-                <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Add Product</button>
+                <SubmitButton/>
             </form>
         </>
     )
 }
+
