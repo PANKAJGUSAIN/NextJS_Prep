@@ -39,11 +39,14 @@ export async function addProduct(title , price , description) {
     })
 }
 
-export async function updateProduct(id, data) {
+export async function updateProduct(id , title, price, description) {
+
+
+
     await new Promise((resolve) => setTimeout(resolve, 1500));
     return prisma.product.update({
         where: { id },
-        data,
+        data : {title ,price ,description},
     });
 }
 
