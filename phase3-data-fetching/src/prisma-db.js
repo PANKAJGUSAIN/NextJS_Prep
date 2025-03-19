@@ -20,9 +20,24 @@ const seedProduct  = async() =>{
 seedProduct();
 
 
-export async function getProducts() {
+export async function getProducts(query) {
     await new Promise((resolve) => setTimeout(resolve , 1500))
-    return prisma.product.findMany();   
+    try {
+        if (query) {
+            return await prisma.product.findMany({
+                where: {
+                    OR: [
+                        { title: { contains: query } },
+                        { description: { contains: query } },
+                    ],
+                },
+            });
+        }
+        return await prisma.product.findMany();
+    } catch (error) {
+        console.log("Error fetching products:", error);
+        throw error;
+    }  
 }
 
 export async function getProduct(id) {

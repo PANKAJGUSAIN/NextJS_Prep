@@ -2,8 +2,10 @@ import { getProducts } from "@/prisma-db";
 import Link from "next/link";
 import { removeProduct } from "./productsDelete";
 
-export default async function productsdbpage() {
-    const product = await getProducts();
+export default async function productsdbpage(props) {
+    const searchParams = await props.searchParams;
+    console.log(searchParams);
+    const product = await getProducts(searchParams.query);
     return (
         <div className="p-4 max-w-md mx-auto bg-black rounded-xl shadow-md space-y-4">
             {product.map((item) => (
